@@ -3,11 +3,17 @@ void main() {
     while (true) {
         System.out.print("Input a string: ");
         String userString = input.nextLine().trim();
-        if (userString.length() == 13) {
-            throw new ThirteenException();
-        } else {
-            System.out.println("That string has a length of "+userString.length());
+        try {
+            if (userString.length() == 13) {
+                throw new ThirteenException();
+            } else {
+                System.out.println("That string has a length of "+userString.length());
+            }
+        } catch (ThirteenException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
         }
+
     }
 
 }
